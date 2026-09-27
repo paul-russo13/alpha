@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Corgi Cafe — coffee, cake &amp; corgis</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐶</text></svg>">
+</head>
+<body>
+  <!-- Reusable corgi face. Each <use> sets --fur to change the coat colour. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="corgi" viewBox="0 0 100 100">
+      <polygon points="16,52 22,4 48,34" style="fill:var(--fur,#e8883a)"/>
+      <polygon points="84,52 78,4 52,34" style="fill:var(--fur,#e8883a)"/>
+      <polygon points="23,42 26,15 41,33" fill="#f6b8a0"/>
+      <polygon points="77,42 74,15 59,33" fill="#f6b8a0"/>
+      <ellipse cx="50" cy="60" rx="35" ry="30" style="fill:var(--fur,#e8883a)"/>
+      <path d="M45 34 Q50 28 55 34 L60 64 L40 64 Z" fill="#fff8ef"/>
+      <ellipse cx="50" cy="76" rx="21" ry="14" fill="#fff8ef"/>
+      <circle cx="30" cy="68" r="5" fill="#f6b8a0" opacity=".7"/>
+      <circle cx="70" cy="68" r="5" fill="#f6b8a0" opacity=".7"/>
+      <circle cx="36" cy="55" r="4.2" fill="#2b1d14"/>
+      <circle cx="64" cy="55" r="4.2" fill="#2b1d14"/>
+      <circle cx="37.4" cy="53.6" r="1.4" fill="#fff"/>
+      <circle cx="65.4" cy="53.6" r="1.4" fill="#fff"/>
+      <ellipse cx="50" cy="68" rx="5.5" ry="3.8" fill="#2b1d14"/>
+      <path d="M50 71 Q50 78 44 78 M50 71 Q50 78 56 78" stroke="#2b1d14" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+      <path d="M47 79 Q50 86 53 79 Z" fill="#e5707a"/>
+    </symbol>
+  </svg>
+
+  <header class="topbar">
+    <a class="brand" href="#">
+      <svg class="brand-logo" aria-hidden="true"><use href="#corgi"/></svg>
+      Corgi Cafe
+    </a>
+    <nav>
+      <a href="#menu">Menu</a>
+      <a href="#corgi-of-the-day">Corgi of the Day</a>
+      <a href="#cart" class="cart-link">Basket <span id="cart-badge" class="badge">0</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <p id="status" class="status"></p>
+        <h1>Coffee, cake <span class="accent">&amp; corgis.</span></h1>
+        <p class="lede">Order at the counter or right here. A very short dog will supervise your drink being made.</p>
+        <a class="button" href="#menu">See the menu</a>
+      </div>
+      <svg class="hero-corgi" role="img" aria-label="Cartoon corgi face"><use href="#corgi"/></svg>
+    </section>
+
+    <div class="layout">
+      <section id="menu" aria-labelledby="menu-title">
+        <h2 id="menu-title">Menu</h2>
+        <ul id="menu-list" class="menu"></ul>
+      </section>
+
+      <aside id="cart" class="cart" aria-labelledby="cart-title">
+        <h2 id="cart-title">Your basket</h2>
+        <ul id="cart-list" class="cart-list" aria-live="polite"></ul>
+        <p id="cart-empty" class="muted">Nothing here yet. The corgis are disappointed.</p>
+        <div class="cart-total">
+          <span>Total</span>
+          <strong id="cart-total">$0.00</strong>
+        </div>
+        <button id="place-order" class="button wide" disabled>Place order</button>
+        <div id="confirmation" class="confirmation" role="status" hidden></div>
+      </aside>
+    </div>
+
+    <section id="corgi-of-the-day" class="cotd" aria-labelledby="cotd-title">
+      <svg id="cotd-face" class="cotd-face" aria-hidden="true"><use href="#corgi"/></svg>
+      <div>
+        <p class="eyebrow">Corgi of the Day</p>
+        <h2 id="cotd-title"></h2>
+        <p id="cotd-coat" class="muted"></p>
+        <p id="cotd-fact" class="fact"></p>
+        <button id="next-corgi" class="button ghost">Meet another corgi</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Corgi Cafe · Open 7am–11pm daily · No corgis were rushed in the making of your coffee.
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
